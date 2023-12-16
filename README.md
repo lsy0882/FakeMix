@@ -4,7 +4,6 @@
 ## Guide
 ### 0. Base
 * Code rules
-  * Code architecture diagram ![Code Architecture Diagram](https://github.com/lsy0882/MDFD/releases/download/0.0.1/Code_Architecture_Diagram.png)
   * Rule 1: Maintain the framework displayed in the Code Architecture Diagram.
   * Rule 2: Record various parameters and variables in the config.yaml file for each model.
   * Rule 3: Even if the same instances or methods are used in the <model_class_name>.py file within different model directories, implement each in their respective folders.
