@@ -1,4 +1,4 @@
-# Multimodal DeepFake detection (MDFD)
+# FakeMix
 <br>
 
 ## Guide
