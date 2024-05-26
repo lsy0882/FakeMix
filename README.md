@@ -4,7 +4,7 @@ Download link: https://www.dropbox.com/scl/fi/nsf5dphlb1te6m91j8kn2/data.zip?rlk
 <br>
 
 ## Guide
-### <b> 0. FakeMix benchmark download link <\b>
+### <b> 0. FakeMix benchmark download link </b>
 https://www.dropbox.com/scl/fi/nsf5dphlb1te6m91j8kn2/data.zip?rlkey=xacwyculfvvussat7p7cl45v5&st=k6tbyti1&dl=0
 <br>
 
