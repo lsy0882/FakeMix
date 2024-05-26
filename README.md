@@ -86,6 +86,50 @@ Create a wandb account and get your API key.
 
 By following these steps, you can test the Baseline_1_Unimodal_Video_Xception and Baseline_1_Unimodal_Audio_Xception models and analyze the results using wandb and the provided Excel files.
 
+### 3. Testing Baseline_2_Multimodal_AVAD
+
+#### Step 1: Generate Test Data Paths File
+- Open `.../FakeMix/models/Baseline_2_Multimodal_AVAD/make_data_path_to_textfile.py`.
+- Set the `root_directory` variable to the path of the FakeMix test directory.
+- Set the `output_file` variable to the desired path where you want to save the `.txt` file.
+- Run the following command to create a `.txt` file containing paths to the test data:
+  ```bash
+  python .../FakeMix/models/Baseline_2_Multimodal_AVAD/make_data_path_to_textfile.py
+  ```
+
+#### Step 2: Run Detection
+- Navigate to the model directory:
+  ```bash
+  cd .../FakeMix/models/Baseline_2_Multimodal_AVAD
+  ```
+- Run the detection command:
+  ```bash
+  CUDA_VISIBLE_DEVICES=0 python detect.py --test_video_path "/home/lsy/laboratory/Research/FakeMix/models/Baseline_2_Multimodal_AVAD/tools_for_FakeMix/FakeMIx_mp4_paths.txt" --device cuda:0 --max-len 50 --n_workers 18 --bs 1 --lam 0 --output_dir /home/lsy/laboratory/Research/FakeMix/models/Baseline_2_Multimodal_AVAD
+  ```
+- Set the command arguments as follows:
+  - `CUDA_VISIBLE_DEVICES=n`: Set `n` to the GPU ID you want to use.
+  - `test_video_path`: Path to the `.txt` file created in the previous step.
+  - `device`: Set to the same value as `CUDA_VISIBLE_DEVICES`.
+  - `max-len`: Maximum sequence length considered by AVAD. Set to 50 for this experiment.
+  - `n_workers`: Number of CPU workers for the dataloader. Adjust based on your CPU specifications.
+  - `bs`: Batch size. Set to 1 for testing.
+  - `lam`: Fixed value.
+  - `output_dir`: Path where the output results will be saved (e.g., `.../FakeMix/models/Baseline_2_Multimodal_AVAD`).
+
+#### Step 3: Evaluate Results
+- After the process completes, a `testing_scores.json` file will be created in `.../FakeMix/models/Baseline_2_Multimodal_AVAD`. This JSON file contains evaluation results for each test video and audio clip, including probability scores for detecting deepfakes per second.
+- Open `.../FakeMix/models/Baseline_2_Multimodal_AVAD/calculate_our_metric.py`.
+- Set the `file_path` variable to the path of the `testing_scores.json` file.
+- Run the following command to calculate the metrics:
+  ```bash
+  python .../FakeMix/models/Baseline_2_Multimodal_AVAD/calculate_our_metric.py
+  ```
+- Once executed, you will obtain the TA and FDM evaluation results.
+- Additionally, in the directory specified by the `file_path` variable, you will find neatly recorded JSON files detailing the evaluation results for each video clip.
+
+By following these steps, you can effectively test the Baseline_2_Multimodal_AVAD model and analyze the results.
+
+
 
 <!-- 주석처리
 
