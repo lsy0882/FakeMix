@@ -6,7 +6,7 @@ Download link: https://www.dropbox.com/scl/fi/nsf5dphlb1te6m91j8kn2/data.zip?rlk
 ### 0. FakeMix benchmark download link
 https://www.dropbox.com/scl/fi/nsf5dphlb1te6m91j8kn2/data.zip?rlkey=xacwyculfvvussat7p7cl45v5&st=k6tbyti1&dl=0
 
-### 1. Instructions for Preparing FakeMix Benchmark Data
+### 1. Instructions for Preparing FakeMix Benchmark Data (Optional; You can easily download the dataset using the link provided above.)
 
 #### Step 1: Download FakeAVCeleb
 First, download the FakeAVCeleb dataset.
