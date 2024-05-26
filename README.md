@@ -2,6 +2,44 @@
 <br>
 Download link: https://www.dropbox.com/scl/fi/nsf5dphlb1te6m91j8kn2/data.zip?rlkey=xacwyculfvvussat7p7cl45v5&st=k6tbyti1&dl=0
 
+## Guide
+### 0. FakeMix benchmark download link
+https://www.dropbox.com/scl/fi/nsf5dphlb1te6m91j8kn2/data.zip?rlkey=xacwyculfvvussat7p7cl45v5&st=k6tbyti1&dl=0
+
+### 1. Instructions for Preparing FakeMix Benchmark Data
+
+#### Step 1: Download FakeAVCeleb
+First, download the FakeAVCeleb dataset.
+
+#### Step 2: Data Preprocessing
+1. Open `.../FakeMix/preprocessor/data_preprocess.py`.
+2. Set the `data_directory` variable to the root directory of FakeAVCeleb.
+3. Set the `output_directory` variable to the path where you want to save the preprocessed data.
+4. After modifying the variables, run the following command:
+   ```bash
+   python .../FakeMix/preprocessor/data_preprocess.py
+   ```
+
+#### Step 3: Mixing Clips
+1. Open `.../FakeMix/preprocessor/mix_clips.py`.
+2. Set the `dataset_base_dir` variable to the same path as the `output_directory` from the previous step.
+3. Set the `output_base_dir` variable to the path where you want to save the mixed data.
+4. After modifying the variables, run the following command (ensure not to change the seed value for `random.seed()`):
+   ```bash
+   python .../FakeMix/preprocessor/mix_clips.py
+   ```
+
+#### Step 4: Understanding the FakeMix Benchmark Data
+The mixed data obtained using `.../FakeMix/preprocessor/mix_clips.py` is the FakeMix benchmark data. It is organized as follows:
+
+- **FakeVideo-FakeAudio**: Directory containing videos where each video has 1-second clips of FakeVideo-FakeAudio or RealVideo-RealAudio appearing in random order.
+- **FakeVideo-RealAudio**: Directory containing videos where each video has 1-second clips of FakeVideo-RealAudio or RealVideo-RealAudio appearing in random order.
+- **RealVideo-FakeAudio**: Directory containing videos where each video has 1-second clips of RealVideo-FakeAudio or RealVideo-RealAudio appearing in random order.
+
+#### Annotations
+For each created video (e.g., `abc.mp4`) or audio file (e.g., `abc.wav`), there is an annotation file with the same name saved in JSON format containing frame-by-frame label information (e.g., `abc.json`).
+
+### 2. Instructions for Preparing FakeMix Benchmark Data
 
 <!-- 주석처리
 
