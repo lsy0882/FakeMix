@@ -1,14 +1,14 @@
 wandb:
   login: 
-    key: "99975cd8f95af3ba68278d2484eb109af43a4a64" ### Login key / Don't change
+    key: "" ### Login key / Don't change
   init: ### Ref: https://docs.wandb.ai/ref/python/init
-    project: "SMDA_Project" ### Dont't change
-    entity: "cmu_23f_iitp_smad_dfd" ### Your wandb profile name (=id)
+    project: "FakeMix" ### Dont't change
+    entity: "" ### Your wandb profile name (=id)
     save_code: true ### Don't change
     group: "" ### Don't change / Ref: https://docs.wandb.ai/guides/runs/grouping
     job_type: "test" ### "data-preprocess", "train", "test", "visualize" etc...
     tags: ["Baseline_1", "Unimodal", "Audio", "Xception"] ### [Network, Size, etc...]
-    name: "[LSY]_Baseline_1_Unimodal_Audio_Xception" ### "Network"_"Size"_"Version" | Version policy: v{Architecture change}_{Method/Block change}_{Layer/Minor change}
+    name: "Baseline_1_Unimodal_Audio_Xception" ### "Network"_"Size"_"Version" | Version policy: v{Architecture change}_{Method/Block change}_{Layer/Minor change}
     notes: "Test [Baseline_1_Unimodal_Audio_Xception] to our benchmark" ### Insert changes(plz write details)
     dir: "./wandb" ### Don't change
     resume: "auto" ### Don't change
@@ -24,7 +24,7 @@ wandb:
     monitor_gym: false ### Don't change
     config:
       dataset:
-        data_path: "/home/lsy/laboratory/Research/idea4_MDFD/data"
+        data_path: "/home/lsy/laboratory/Research/FakeMix/data"
       dataloader:
         batch_size: 32
         pin_memory: true
@@ -63,4 +63,4 @@ wandb:
           custom_arg2:
       engine:
         epoch: 200
-        gpuid: "1" ### "0"(single-gpu) or "0, 1" (multi-gpu)
+        gpuid: "0" ### "0"(single-gpu) or "0, 1" (multi-gpu)

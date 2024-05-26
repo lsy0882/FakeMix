@@ -115,7 +115,7 @@ def split_video(video_path, output_dir, category, identity, video_id, crop_face_
     # Close the main clip to free up resources
     clip.close()
 
-def preprocess_fakeavceleb(root_dir, data_dir, output_dir, crop_face_option):
+def preprocess_fakeavceleb(data_dir, output_dir, crop_face_option):
     # Loop through the directory structure
     for category in os.listdir(data_dir):
         category_path = os.path.join(data_dir, category)
@@ -136,13 +136,12 @@ def preprocess_fakeavceleb(root_dir, data_dir, output_dir, crop_face_option):
                                             split_video(video_path, output_dir, category, identity, video_id, crop_face_option)
 
 # Example usage (the paths need to be adjusted to your actual data locations)
-root_directory = '/home/lsy/laboratory/Research/idea4_MDFD'
-data_directory = '/home/lsy/laboratory/Research/idea4_MDFD/data/FakeAVCeleb'  # Replace with the path to the root of the dataset
-output_directory = '/home/lsy/laboratory/Research/idea4_MDFD/data/FakeAVCeleb_preprocessed_onlyface_fixlen'           # Replace with your desired output path
+data_directory = '/home/lsy/laboratory/Research/FakeMix/data/FakeAVCeleb'  # Replace with the path to the root of the dataset
+output_directory = '/home/lsy/laboratory/Research/FakeMix/data/FakeAVCeleb_preprocessed'           # Replace with your desired output path
 
 crop_face = True
 # Run the preprocessing function
-preprocess_fakeavceleb(root_directory, data_directory, output_directory, crop_face)
+preprocess_fakeavceleb(data_directory, output_directory, crop_face)
 
 # The above function call is commented out because this environment does not have access to the dataset files.
 # You can uncomment and run this function in your local environment where the dataset is accessible.

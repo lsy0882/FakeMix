@@ -8,8 +8,8 @@ import json
 random.seed(42)
 
 # Set the base directory for the dataset and output directory
-dataset_base_dir = Path("/home/lsy/laboratory/Research/idea4_MDFD/data/FakeAVCeleb_preprocessed_onlyface_fixlen")
-output_base_dir = Path("/home/lsy/laboratory/Research/idea4_MDFD/data/FakeAVCeleb_mixed_onlyface_fixlen")
+dataset_base_dir = Path("/home/lsy/laboratory/Research/FakeMix/data/FakeAVCeleb_preprocessed")
+output_base_dir = Path("/home/lsy/laboratory/Research/FakeMix/data/FakeAVCeleb_mixed")
 
 # Set the categories
 original = 'RealVideo-RealAudio'

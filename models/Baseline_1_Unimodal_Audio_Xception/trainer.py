@@ -185,19 +185,19 @@ class Trainer(object):
                 
                 curr_lr = float(self.optimizer.param_groups[0]['lr'])
                 train_loss, train_acc = self._train(self.dataloaders['train'])
-                # val_loss, val_acc = self._validate(self.dataloaders['val'])
+                val_loss, val_acc = self._validate(self.dataloaders['val'])
                 
                 train_util.step_scheduler(scheduler=self.scheduler) # StepLR
                 # train_util.step_scheduler(scheduler=self.scheduler, val_loss=val_loss) # ReduceLROnPlateau
 
                 logger.info(f"\n Epoch {epoch}/{self.config['engine']['epoch']}")
                 logger.info(f"\t Train Loss: {train_loss:04f} \t Train Accuracy: {train_acc:04f} \t Learning Rate {curr_lr:07f}")
-                # logger.info(f"\t Valid Loss: {val_loss:04f} \t Valid Accuracy: {val_acc:04f} \t Learning Rate {curr_lr:07f}")
+                logger.info(f"\t Valid Loss: {val_loss:04f} \t Valid Accuracy: {val_acc:04f} \t Learning Rate {curr_lr:07f}")
 
                 # Log metrics at each epoch using wandb
                 self.wandb_run.log({'Learning Rate': curr_lr})
                 self.wandb_run.log({'Train Loss': train_loss, "Train Accuracy": train_acc})
-                # self.wandb_run.log({'Valid Loss': val_loss, "Valid Accuracy": val_acc})
+                self.wandb_run.log({'Valid Loss': val_loss, "Valid Accuracy": val_acc})
 
                 # Save checkpoint each epoch
                 train_util.save_checkpoint_per_nth(5, epoch, self.model, self.optimizer, self.checkpoint_path, self.wandb_run)
