@@ -39,7 +39,53 @@ The mixed data obtained using `.../FakeMix/preprocessor/mix_clips.py` is the Fak
 #### Annotations
 For each created video (e.g., `abc.mp4`) or audio file (e.g., `abc.wav`), there is an annotation file with the same name saved in JSON format containing frame-by-frame label information (e.g., `abc.json`).
 
-### 2. Instructions for Preparing FakeMix Benchmark Data
+### 2. Testing Baseline_1_Unimodal_Video_Xception and Baseline_1_Unimodal_Audio_Xception
+
+First, ensure you have a [wandb](https://www.wandb.com/) account as this experiment logs results using wandb.
+
+#### Steps 1: Set Up Wandb Account
+Create a wandb account and get your API key.
+
+#### Steps 2: Configure the Experiment
+- Open the `.../FakeMix/run.sh` file.
+- Set the `--model` parameter to the directory name in `.../FakeMix/models` where you want to run the experiment. For example:
+  ```bash
+  --model Baseline_1_Unimodal_Audio_Xception
+  ```
+- Set the `--mode` parameter to `test`. For example:
+  ```bash
+  --mode test
+  ```
+- If you want to use FakeMix for training, set the `--mode` parameter to `train`.
+
+#### Steps 3: Update Configurations
+- In the experiment directory, open the `configs.yaml` file. For example:
+  ```bash
+  .../FakeMix/models/Baseline_1_Unimodal_Audio_Xception/configs.yaml
+  ```
+- Update the `wandb-login-key` value with your wandb login API key.
+- Update the `wandb-init-entity` value with your wandb profile name or team name.
+- Set the `wandb-init-config-dataset-data_path` value to the root path of the FakeMix dataset. For example:
+  ```yaml
+  data_path: "/home/lsy/laboratory/Research/FakeMix/data"
+  ```
+- Set the `wandb-init-config-engine-gpuid` value to the GPU ID you want to use for the experiment. For example, to use GPU 0:
+  ```yaml
+  gpuid: "0"
+  ```
+
+#### Steps 4: Run the Experiment
+- Execute the experiment by running:
+  ```bash
+  sh .../FakeMix/run.sh
+  ```
+
+#### Steps 5. Check Results
+- After the test is completed, the output will display `Average each accuracy` and `Total accuracy`. These values represent the TA and FDM metrics, respectively.
+- Each experiment directory will also have an `each_file_record.xlsx` file, which shows the accuracy for each video clip, indicating which clips were correctly classified.
+
+By following these steps, you can test the Baseline_1_Unimodal_Video_Xception and Baseline_1_Unimodal_Audio_Xception models and analyze the results using wandb and the provided Excel files.
+
 
 <!-- 주석처리
 
