@@ -220,7 +220,10 @@ By following these steps, you can test the Baseline_1_Unimodal_Video_Xception an
 
 ### 3. Testing Baseline_2_Multimodal_AVAD
 
-#### Step 1: Generate Test Data Paths File
+#### Step 1: Download AVAD Checkpoint
+- Download Audio-visual synchronization model checkpoint `sync_model.pth`[link](https://drive.google.com/file/d/1BxaPiZmpiOJDsbbq8ZIDHJU7--RJE7Br/view?usp=sharing) at .../FakeMix/models/Baseline_2_Multimodal_AVAD/ 
+
+#### Step 2: Generate Test Data Paths File
 - Open `.../FakeMix/models/Baseline_2_Multimodal_AVAD/make_data_path_to_textfile.py`.
 - Set the `root_directory` variable to the path of the FakeMix test directory.
 - Set the `output_file` variable to the desired path where you want to save the `.txt` file.
@@ -229,7 +232,7 @@ By following these steps, you can test the Baseline_1_Unimodal_Video_Xception an
   python .../FakeMix/models/Baseline_2_Multimodal_AVAD/make_data_path_to_textfile.py
   ```
 
-#### Step 2: Run Detection
+#### Step 3: Run Detection
 - Navigate to the model directory:
   ```bash
   cd .../FakeMix/models/Baseline_2_Multimodal_AVAD
@@ -248,7 +251,7 @@ By following these steps, you can test the Baseline_1_Unimodal_Video_Xception an
   - `lam`: Fixed value.
   - `output_dir`: Path where the output results will be saved (e.g., `.../FakeMix/models/Baseline_2_Multimodal_AVAD`).
 
-#### Step 3: Evaluate Results
+#### Step 4: Evaluate Results
 - After the process completes, a `testing_scores.json` file will be created in `.../FakeMix/models/Baseline_2_Multimodal_AVAD`. This JSON file contains evaluation results for each test video and audio clip, including probability scores for detecting deepfakes per second.
 - Open `.../FakeMix/models/Baseline_2_Multimodal_AVAD/calculate_our_metric.py`.
 - Set the `file_path` variable to the path of the `testing_scores.json` file.
