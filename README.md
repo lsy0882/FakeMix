@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream
 # FakeMix
 
 ## Guide
