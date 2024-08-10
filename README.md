@@ -136,10 +136,9 @@ By following these steps, you can effectively test the Baseline_2_Multimodal_AVA
 If you use this code or dataset in your research, please cite our paper:
 
 ```bibtex
-@inproceedings{TBD,
+@article{jung2024and,
   title={WWW: Where, Which and Whatever Enhancing Interpretability in Multimodal Deepfake Detection},
-  author={TBD},
-  booktitle={TBD,
-  year={2024},
-  organization={IJCAI 2024 Workshop}
+  author={Jung, Juho and Lee, Sangyoun and Kang, Jooeon and Na, Yunjin},
+  journal={arXiv preprint arXiv:2408.02954},
+  year={2024}
 }
